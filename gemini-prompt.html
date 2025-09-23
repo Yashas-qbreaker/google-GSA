@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Multi Gemini Launcher</title>
+  <title>Open 5 Gemini Prompts</title>
 </head>
 <body>
-  <h2>Launching your Gemini prompts...</h2>
-  <p>If nothing opens, please allow pop-ups in Chrome.</p>
+  <h2>Open all Gemini prompts</h2>
+  <p>Click the button below. If only 1–2 tabs open, allow pop-ups in Chrome and click again.</p>
+  <button id="openAll">🚀 Launch All</button>
 
   <script>
-    // Replace with your actual Gemini prompt URLs
     const urls = [
       "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=17",
       "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=16",
@@ -17,13 +17,8 @@
       "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=14",
       "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=13"
     ];
-
-    document.getElementById('openAll').addEventListener('click', function (e) {
-      // Attempt to open them immediately from the click handler
-      urls.forEach((u) => {
-        try { window.open(u, '_blank'); }
-        catch (err) { /* ignore */ }
-      });
+    document.getElementById('openAll').addEventListener('click', () => {
+      urls.forEach(u => window.open(u, "_blank"));
     });
   </script>
 </body>

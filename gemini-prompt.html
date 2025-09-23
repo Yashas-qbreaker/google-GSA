@@ -18,7 +18,13 @@
       "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=13"
     ];
 
-    urls.forEach(u => window.open(u, "_blank"));
+    document.getElementById('openAll').addEventListener('click', function (e) {
+      // Attempt to open them immediately from the click handler
+      urls.forEach((u) => {
+        try { window.open(u, '_blank'); }
+        catch (err) { /* ignore */ }
+      });
+    });
   </script>
 </body>
 </html>

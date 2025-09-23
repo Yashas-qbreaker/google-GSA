@@ -53,7 +53,7 @@ const Index = () => {
             />
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-hero bg-clip-text text-transparent mb-4 leading-tight">
-            Google Student Ambassador
+            Google Student Ambassador Program
           </h1>
           <h2 className="text-2xl md:text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-6">
             ✨ Explore with Gemini

@@ -53,7 +53,7 @@ const Index = () => {
             />
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-hero bg-clip-text text-transparent mb-4 leading-tight">
-            Google Student Ambassador
+            Google Student Ambassador Program
           </h1>
           <h2 className="text-2xl md:text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-6">
             ✨ Explore with Gemini
@@ -65,29 +65,31 @@ const Index = () => {
       </header>
 
       {/* Prompts Grid */}
-      <main className="relative px-4 pb-16">
+      <main className="relative px-2 sm:px-4 pb-16">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
             {prompts.map((prompt, index) => (
-              <PromptCard
-                key={index}
-                emoji={prompt.emoji}
-                title={prompt.title}
-                description={prompt.description}
-                url={prompt.url}
-              />
+              <div>
+                <PromptCard
+                  key={index}
+                  emoji={prompt.emoji}
+                  title={prompt.title}
+                  description={prompt.description}
+                  url={prompt.url}
+                />
+              </div>
             ))}
           </div>
         </div>
       </main>
 
       {/* WhatsApp CTA */}
-      <section className="relative px-4 pb-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-6 bg-gradient-primary bg-clip-text text-transparent">
+      <section className="relative px-2 sm:px-4 pb-16 mt-12 md:mt-20">
+        <div className="max-w-4xl mx-auto text-center rounded-2xl bg-gradient-to-b from-background/80 to-background/60 shadow-lg p-6 md:p-10">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-4 md:mb-6 bg-gradient-primary bg-clip-text text-transparent">
             Join Our Community
           </h2>
-          <p className="text-muted-foreground mb-6 md:mb-8 max-w-lg mx-auto text-base md:text-lg px-4">
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg mx-auto px-2">
             Connect with other AI enthusiasts and get exclusive prompts, tips, and updates
           </p>
           <WhatsAppButton url="https://chat.whatsapp.com/" />

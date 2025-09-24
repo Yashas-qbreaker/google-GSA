@@ -92,7 +92,7 @@ const Index = () => {
           <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg mx-auto px-2">
             Connect with other AI enthusiasts and get exclusive prompts, tips, and updates
           </p>
-          <WhatsAppButton url="https://chat.whatsapp.com/" />
+          <WhatsAppButton url="https://chat.whatsapp.com/IvtIflAUYd03aIeMRjiaHk" />
         </div>
       </section>
     </div>

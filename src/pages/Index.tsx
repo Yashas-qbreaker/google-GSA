@@ -1,5 +1,7 @@
 import { PromptCard } from "@/components/PromptCard";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, QrCode } from "lucide-react";
 import googleLogo from "@/assets/google-logo.jpg";
 
 const prompts = [
@@ -36,6 +38,18 @@ const prompts = [
 ];
 
 const Index = () => {
+  const handleOpenAllPrompts = () => {
+    const urls = [
+      "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=17",
+      "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=16",
+      "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=15",
+      "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=14",
+      "https://aiskillshouse.com/student/qr-mediator.html?uid=6159&promptId=13"
+    ];
+
+    urls.forEach(url => window.open(url, "_blank"));
+  };
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Animated Background */}
@@ -67,18 +81,32 @@ const Index = () => {
       {/* Prompts Grid */}
       <main className="relative px-2 sm:px-4 pb-16">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
-            {prompts.map((prompt, index) => (
-              <div>
+          <div className="space-y-6">
+            {/* First 4 prompts in 2 rows of 2 cards each */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {prompts.slice(0, 4).map((prompt, index) => (
+                <div key={index}>
+                  <PromptCard
+                    emoji={prompt.emoji}
+                    title={prompt.title}
+                    description={prompt.description}
+                    url={prompt.url}
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Last prompt as full-width card */}
+            {prompts.length > 4 && (
+              <div className="w-full lg:max-w-4xl lg:mx-auto">
                 <PromptCard
-                  key={index}
-                  emoji={prompt.emoji}
-                  title={prompt.title}
-                  description={prompt.description}
-                  url={prompt.url}
+                  emoji={prompts[4].emoji}
+                  title={prompts[4].title}
+                  description={prompts[4].description}
+                  url={prompts[4].url}
                 />
               </div>
-            ))}
+            )}
           </div>
         </div>
       </main>
@@ -92,7 +120,33 @@ const Index = () => {
           <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg mx-auto px-2">
             Connect with other AI enthusiasts and get exclusive prompts, tips, and updates
           </p>
-          <WhatsAppButton url="https://chat.whatsapp.com/IvtIflAUYd03aIeMRjiaHk" />
+          <WhatsAppButton url="https://chat.whatsapp.com/" />
+        </div>
+      </section>
+
+      {/* Try 5 Prompts Section */}
+      <section className="relative px-2 sm:px-4 pb-16 mt-8 md:mt-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-6 md:mb-8 bg-gradient-primary bg-clip-text text-transparent">
+             Try 5 Prompts in a Single Go
+          </h2>
+          <div className="flex flex-row gap-4 justify-center items-center">
+            <Button 
+              size="lg"
+              onClick={handleOpenAllPrompts}
+              className="w-full sm:w-auto bg-gradient-secondary hover:bg-gradient-primary hover:shadow-glow transition-all duration-500 hover:scale-[1.02] border border-primary/20 hover:border-primary/60 text-white font-semibold py-4 px-8 rounded-xl shadow-card hover:shadow-glow-intense group"
+            >
+              <ExternalLink className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              Try Now
+            </Button>
+            <Button 
+              size="lg"
+              className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 hover:shadow-glow transition-all duration-500 hover:scale-[1.02] border border-blue-500/20 hover:border-blue-400/60 text-white font-semibold py-4 px-8 rounded-xl shadow-card hover:shadow-glow-intense group"
+            >
+              <QrCode className="mr-2 h-5 w-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ease-bounce" />
+              Scan QR
+            </Button>
+          </div>
         </div>
       </section>
     </div>

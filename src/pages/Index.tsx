@@ -1,6 +1,7 @@
 import { PromptCard } from "@/components/PromptCard";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ExternalLink, QrCode } from "lucide-react";
 import googleLogo from "@/assets/google-logo.jpg";
 
@@ -139,13 +140,36 @@ const Index = () => {
               <ExternalLink className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               Try Now
             </Button>
-            <Button 
-              size="lg"
-              className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 hover:shadow-glow transition-all duration-500 hover:scale-[1.02] border border-blue-500/20 hover:border-blue-400/60 text-white font-semibold py-4 px-8 rounded-xl shadow-card hover:shadow-glow-intense group"
-            >
-              <QrCode className="mr-2 h-5 w-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ease-bounce" />
-              Scan QR
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button 
+                  size="lg"
+                  className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 hover:shadow-glow transition-all duration-500 hover:scale-[1.02] border border-blue-500/20 hover:border-blue-400/60 text-white font-semibold py-4 px-8 rounded-xl shadow-card hover:shadow-glow-intense group"
+                >
+                  <QrCode className="mr-2 h-5 w-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ease-bounce" />
+                  Scan QR
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md mx-auto">
+                <DialogHeader>
+                  <DialogTitle className="text-center text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                    Scan QR Code
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="flex flex-col items-center space-y-4 p-4">
+                  <div className="bg-white p-4 rounded-lg shadow-lg">
+                    <img 
+                      src="/prompt qr.png" 
+                      alt="QR Code for Gemini Prompts" 
+                      className="w-full max-w-xs h-auto rounded"
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground text-center">
+                    Scan this QR code with your mobile device to access all 5 Gemini prompts
+                  </p>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>

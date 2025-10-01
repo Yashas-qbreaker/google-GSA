@@ -61,11 +61,34 @@ const Index = () => {
       <header className="relative text-center py-12 md:py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-center mb-6">
-            <img 
-              src={googleLogo} 
-              alt="Google Logo" 
-              className="w-16 h-16 md:w-20 md:h-20 rounded-xl shadow-glow"
-            />
+            <Dialog>
+              <DialogTrigger asChild>
+                <img 
+                  src={googleLogo} 
+                  alt="Google Logo" 
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-xl shadow-glow cursor-pointer hover:scale-105 transition-transform duration-300"
+                />
+              </DialogTrigger>
+              <DialogContent className="max-w-md mx-auto">
+                <DialogHeader>
+                  <DialogTitle className="text-center text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                    Share the platform with friends
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="flex flex-col items-center space-y-4 p-4">
+                  <div className="bg-white p-4 rounded-lg shadow-lg">
+                    <img 
+                      src="/web qr.png" 
+                      alt="QR code to share the platform"
+                      className="w-full max-w-xs h-auto rounded"
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground text-center">
+                    Scan this QR to share the platform with friends
+                  </p>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-hero bg-clip-text text-transparent mb-4 leading-tight">
             Google Student Ambassador Program
@@ -173,9 +196,9 @@ const Index = () => {
           </div>
         </div>
       </section>
-            {/* Direct link label without .html (href unchanged) */}
+      {/* Direct link label without .html (href unchanged) */}
       <div className="text-center mb-16">
-               <a
+        <a
           href="https://google-gsa.vercel.app/multiprompt.html"
           target="_blank"
           rel="noopener noreferrer"

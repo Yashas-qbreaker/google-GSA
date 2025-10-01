@@ -181,7 +181,6 @@ const Index = () => {
           rel="noopener noreferrer"
           className="text-sm text-muted-foreground underline hover:text-foreground"
         >
-          /multiprompt
         </a>
       </div>
     </div>

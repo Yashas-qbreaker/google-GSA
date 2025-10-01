@@ -175,8 +175,8 @@ const Index = () => {
       </section>
             {/* Direct link label without .html (href unchanged) */}
       <div className="text-center mb-16">
-        <a
-          href="/multiprompt.html"
+               <a
+          href="https://google-gsa.vercel.app/multiprompt.html"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm text-muted-foreground underline hover:text-foreground"
